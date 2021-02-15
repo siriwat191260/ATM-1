@@ -13,6 +13,7 @@ int main(){
 	while(getline(source,text)){
 		cout<<text<<endl;
 	}
+	cout<<"Please enter your name";
 	cin>>name;
 	cin.ignore();
 	while(getline(source,text)){
