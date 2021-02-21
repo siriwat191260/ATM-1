@@ -66,6 +66,26 @@ void Deposit(vector<string> &names,vector<float> &moneys,string key){
     if(status != 1) cout << "Cannot found." << endl;
     cout << "---------------------------------\n";
 }
+void Withdraw(vector<string> &names,vector<float> &moneys,string key){
+    int N = names.size();
+    int status = 0,withdraw;
+    cout << "---------------------------------\n";
+    for(int i = 0 ; i < N ; i++){
+        if(key == toUpperStr(names[i])){
+        	sname=names[i];
+        	m=i;
+        }
+    }
+	cout << sname << "'s Money in the account now = " << fixed << setprecision(2) << moneys[m] << endl;
+    cout <<"How much will you withdraw?";
+        	cin>>withdraw;
+        	if(moneys[m] >= withdraw){
+			moneys[m]-=withdraw;
+            cout << sname << "'s balance = " << fixed << setprecision(2) << moneys[m] << endl;
+            status = 1;}
+    if(status != 1) cout << "Cannot found." << endl;
+    cout << "---------------------------------\n";
+}
 
 int main(){
     string filename = "Bank.txt";
@@ -87,6 +107,6 @@ int main(){
 	}
         if(x == 1) Deposit(names, moneys, key);
         if(x == 4) searchName(names, moneys, key);
-    
+
     return 0;
 }
