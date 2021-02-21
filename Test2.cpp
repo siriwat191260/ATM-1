@@ -18,10 +18,10 @@ string toUpperStr(string x){
 }
 
 void importDataFromFile(string fn,vector<string> &names,vector<float> &moneys){
-	fstream source("fn");
+	fstream source("Bank.txt");
     string text;
     char name[100];
-    char format[] = "%[^,],%.2f";
+    char format[] = "%[^,],%f";
     while(getline(source,text)){
     	float money;
         char ctext[100];
@@ -39,7 +39,7 @@ void searchName(vector<string> &names,vector<float> &moneys,string key){
     cout << "---------------------------------\n";
     for(int i = 0 ; i < N ; i++){
         if(key == toUpperStr(names[i])){
-            cout << names[i] << "'s moneys = " << fixed << setprecision(2) << moneys[i] << endl;
+            cout << names[i] << "'s moneys = " << moneys[i] << endl;
             status = 1;
         }
     }
@@ -73,7 +73,6 @@ int main(){
     vector<float> moneys;
     string key;
     importDataFromFile(filename, names, moneys);
-
     cout<<"Please input your name : ";
 	getline(cin,key);
 	key = toUpperStr(key);
