@@ -5,6 +5,7 @@
 #include<cstdlib>
 #include<cstring>
 #include<iomanip>
+#include <time.h>
 
 using namespace std;
 
@@ -108,6 +109,17 @@ void Transfer(vector<string> &names,vector<float> &moneys,string key){
     cout << "---------------------------------\n";
 }
 
+
+void receipt(){
+		char date[9];
+	    char time[9];
+	    _strdate(date);
+		_strtime(time);
+			cout << " . . .PRINTING RECEIPT . . .\n";
+			waiting(3000);
+			cout << "DATE:   "<< date ;
+			cout << "TIME:   "<< time ;
+	}
 
 int main(){
     string filename = "Bank.txt";
